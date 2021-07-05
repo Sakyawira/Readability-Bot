@@ -135,20 +135,17 @@
     {
       "$kind": "Microsoft.OnIntent",
       "$designer": {
-        "id": "3jh8nQ",
-        "name": "Readability"
+        "id": "I4lXM1",
+        "name": "GenerateReadability"
       },
       "intent": "GenerateReadability",
-      "entities": [
-        "passage"
-      ],
       "actions": [
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "6alxAR"
+            "id": "w1kBpC"
           },
-          "activity": "${SendActivity_6alxAR()}"
+          "activity": "${SendActivity_w1kBpC()}"
         }
       ]
     }

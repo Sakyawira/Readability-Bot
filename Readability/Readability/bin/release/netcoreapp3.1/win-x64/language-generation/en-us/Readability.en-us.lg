@@ -21,7 +21,13 @@
 - Hmm, I don't understand. Can you try to ask me in a different way. 
 - I didn't get that. Would you mind rephrasing and try it again.
 
-# SendActivity_6alxAR()
+
+# SendActivity_w1kBpC()
 [Activity
-    Text = the readability score is 120
+    Text = ${SendActivity_w1kBpC_text()}
 ]
+
+# SendActivity_w1kBpC_text()
+- readability of that passage is 120
+- readability of that passage is 156
+- that passage's readability is 159
