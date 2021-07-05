@@ -1,0 +1,19 @@
+{
+  "profileName": "ReadabilityBot",
+  "jobId": "facb8593-5ba0-4a58-8d68-c4b9b7537847",
+  "projectId": "64859.47135592684",
+  "time": "2021-07-05T10:54:39.210Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Use the Resource Group: 2021-Phase2 at australiaeast",
+    "> Creating App Registration ...",
+    "Start to add password for App, Id : aa5eadb1-acd4-4893-85cb-a6021d5c409d",
+    "Add application password failed, retrying ...",
+    "Add application password failed, retrying ...",
+    "> Create App Registration Success! ID: aa5eadb1-acd4-4893-85cb-a6021d5c409d",
+    "Deploying Web App Resource ...",
+    "Deploying Bot Resource ...",
+    "Provisioning completed successfully!"
+  ]
+}

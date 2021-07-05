@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_Readability",
+  "recognizers": {
+    "en-us": "Readability.en-us.lu",
+    "": "Readability.en-us.lu"
+  }
+}
