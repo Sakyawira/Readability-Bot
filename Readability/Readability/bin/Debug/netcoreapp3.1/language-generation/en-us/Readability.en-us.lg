@@ -24,10 +24,5 @@
 
 # SendActivity_w1kBpC()
 [Activity
-    Text = ${SendActivity_w1kBpC_text()}
+    Text = processing readability of passage ${user.passage}
 ]
-
-# SendActivity_w1kBpC_text()
-- readability of that passage is 120
-- readability of that passage is 156
-- that passage's readability is 159

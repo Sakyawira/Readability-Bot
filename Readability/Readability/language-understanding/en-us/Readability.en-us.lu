@@ -29,6 +29,10 @@
 
 # GenerateReadability
 - readability of "my name is sakya"
-- what is the readability point of "the quick dragon eat the old man"
-- give me the readability point of "you are my friend"
-- tell me the readability of this passage "john is long"
+- what is the readability point of {passage = "the quick dragon eat the old man"}
+- give me the readability point of {passage = "you are my friend"}
+- tell me the readability of this passage {passage = "john is long"}
+- generate readability of {passage = "who are you talking to?"}
+
+
+@ ml passage

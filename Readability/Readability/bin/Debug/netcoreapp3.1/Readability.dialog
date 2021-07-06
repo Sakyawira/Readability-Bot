@@ -141,12 +141,23 @@
       "intent": "GenerateReadability",
       "actions": [
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "t3oUMS"
+          },
+          "property": "user.passage",
+          "value": "=@passage"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "w1kBpC"
           },
           "activity": "${SendActivity_w1kBpC()}"
         }
+      ],
+      "entities": [
+        "passage"
       ]
     }
   ],
