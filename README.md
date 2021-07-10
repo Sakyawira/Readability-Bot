@@ -21,13 +21,21 @@ You will also need the following account.
 
 ## Creating Your Bot
 1. Click on "Create New".
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/CreateNew.png?raw=true" />
 2. Pick the C# Core Bot with Language.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/CoreBotWithLanguage.png?raw=true" />
 3. Name your bot and pick the Azure Web App runtime.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/NameAndRuntime.png?raw=true" />
 4. Your bot should be created after a couple of minutes. However, you need to now setup LUIS, click on the "Set up Language Understanding" label.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/SetUpLUIS.png?raw=true" />
 5. Select "Create and Configure New Azure Services"
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/Create%20and%20Configure%20New%20Azure%20Resources.png?raw=true" />
 6. Login to Azure.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/LoginToAzure.png?raw=true" />
 7. Select your subscription. If you have not created a subscription yet, you can either use your student email to get a free subscription or sign up for a free trial using a credit card.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/PickSubs.png?raw=true" />
 8. Create an Azure Resource Group by selecting "Create new", and pick "Australia East" for your region for best connection.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/PickResourceGroupAndRegion.png?raw=true" />
 
 ## Deploying Your Bot
 
