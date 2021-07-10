@@ -40,15 +40,22 @@ You will also need the following account.
 ## Deploying Your Bot
 
 1. Create a publishing profile. Go to Configuration -> Connections -> Select Publishing Profile -> Manage Profile.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/ManageProfile.png?raw=true" />
 2. Click add new and fill in the name, choose publish to Azure.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/NewProfile.png?raw=true" />
 3. Select "Create new resources".
 4. Configure the Publishing Resources. Pick the same resource group that you created before to make it easier to manage. Pick the region that is closest to you.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/ConfigurePublishingResources.png?raw=true" />
 5. Make sure you unselect all the optional resources, we already made one of them and will just create the rest manually if we need them.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/UnselectOptionals.png?raw=true" />
 6. Click Create.
 7. Go to Azure portal https://portal.azure.com/
 8. Look for Resource Groups and check if the Resources has been created. You should have these Resources created for you.
-9. Now we need to create a Prediction resource (the keen eyed among you might notice that we could have created the Prediction resource in the optionals menu, but there we could will not be able to pick the price).
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/UnselectOptionals.png?raw=true" />
+9. Now we need to create a Prediction resource (the keen eyed among you might notice that we could have created the Prediction resource in the optionals menu, but there we will not be able to pick the price).
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/MarketPlace.png?raw=true" />
 10. Look for Language Understanding. And click create.
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/CS.png?raw=true" />
 11. Select only the Prediction resource as we already created the authoring resource, and select the F0 pricing tier. Select Review and Create, then Create.
 12. Now that we have both our Prediction and Authoring Resource, we must assign them to our Bot Composer profile.
 13. Go to Bot Composer, go to Publish > Publishing Profile > yourProfile > Edit.
