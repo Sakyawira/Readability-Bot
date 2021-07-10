@@ -2,9 +2,9 @@
 Hey, this document will walk you through setting up a Bot Framework bot using the Bot Composer and LUIS.
 
 ## Overview
-1. [Prerequisite](https://github.com/Sakyawira/ClothPhysics#Wind-Simulation)
-2. [Creating Your Bot](https://github.com/Sakyawira/ClothPhysics#Cube-Collision)
-3. [Deploying Your Bot](https://github.com/Sakyawira/ClothPhysics#Cube-Collision)
+1. [Prerequisite](https://github.com/Sakyawira/Readability-Bot/tree/main#prerequisite)
+2. [Creating Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#creating-your-bot)
+3. [Deploying Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#deploying-your-bot)
 4. [Create Intent](https://github.com/Sakyawira/ClothPhysics#Sphere-Collision)
 5. [Create Entities](https://github.com/Sakyawira/ClothPhysics#Pyramid-Collision)
 6. [Dialog System](https://github.com/Sakyawira/ClothPhysics#Burning)
