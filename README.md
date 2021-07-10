@@ -51,7 +51,7 @@ You will also need the following account.
 6. Click Create.
 7. Go to Azure portal https://portal.azure.com/
 8. Look for Resource Groups and check if the Resources has been created. You should have these Resources created for you.
-<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/UnselectOptionals.png?raw=true" />
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/ResourceGroups.png?raw=true" />
 9. Now we need to create a Prediction resource (the keen eyed among you might notice that we could have created the Prediction resource in the optionals menu, but there we will not be able to pick the price).
 <img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/MarketPlace.png?raw=true" />
 10. Look for Language Understanding. And click create.
