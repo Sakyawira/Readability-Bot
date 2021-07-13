@@ -5,11 +5,10 @@ Hey, this document will walk you through setting up a Bot Framework bot using th
 1. [Prerequisite](https://github.com/Sakyawira/Readability-Bot/tree/main#prerequisite)
 2. [Creating Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#creating-your-bot)
 3. [Deploying Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#deploying-your-bot)
-4. [Create Intent](https://github.com/Sakyawira/ClothPhysics#Sphere-Collision)
-5. [Create Entities](https://github.com/Sakyawira/ClothPhysics#Pyramid-Collision)
+4. [Create Intent and Entities](https://github.com/Sakyawira/Readability-Bot/tree/main#create-intent-and-entities)
+5. [Testing Your Bot](https://github.com/Sakyawira/ClothPhysics#Pyramid-Collision)
 6. [Dialog System](https://github.com/Sakyawira/ClothPhysics#Burning)
 7. [Calling an API](https://github.com/Sakyawira/ClothPhysics#Dynamic-Particle-Densityn)
-8. [Testing Your Bot](https://github.com/Sakyawira/ClothPhysics#Dynamic-Size)
 
 ## Prerequisite
 In order for you to follow along with this documentation, you must have the following and their dependencies installed in your computer.
@@ -97,3 +96,27 @@ You will also need the following account.
 
 
 18. Go back to Publish and Publishh the Bot. Wait a couple of minutes and your bot should be published.
+
+# Create Intent and Entities
+
+Intent is a way for the Bot to recognise what you want it to do. Using LUIS, we can make the Bot recognise different intents. To add a new intent to the bot go to Create, go to any of your dialog, and click on the three dots. Select "Add ew trigger."
+
+The name of the trigger will be the same as the name of your intent. The trigger phrases are the different sentences that might trigger this intent. Essentially, LUIS will train a NLP model to recognise the intent using these senteces.
+
+Name your trigger as "FetchAnimeQuotes" and copy the following code to the phrases.
+
+```.lu
+- tell me a quote from {anime=Shingeki no Kyojin}
+- can you quote {anime=Naruto} for me 
+- what is a famous quote from {anime=fate/zero}
+- tell me a quote from {anime=re:zero}
+- show me a quote from {anime=Berserk}
+- quote {anime=Death Note}
+
+
+> entity definitions:
+@ ml anime
+```
+If you have noticed that there are is a line "@ ml anime". This is our entity. Basically, we are also training LUIS to recognise specific parts of our sentence as a variable. We will then be able to extract this variable to be used in our dialog logic.
+
+Go ahead and submit. You have now created a new intent.
