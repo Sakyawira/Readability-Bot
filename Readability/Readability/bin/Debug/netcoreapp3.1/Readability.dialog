@@ -173,16 +173,35 @@
           "$designer": {
             "id": "9MKWQc"
           },
-          "condition": "=!exists(@anime)",
+          "condition": "=exists(@anime)",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "Uevw5a"
+                "id": "J9m0jA"
               },
               "property": "user.anime",
-              "value": "@anime"
+              "value": "=@anime"
             },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "nwBFMZ"
+              },
+              "resultProperty": "turn.results",
+              "method": "GET",
+              "headers": {},
+              "url": "https://animechan.vercel.app/api/quotes/anime?title=${user.anime}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "dKu7QL"
+              },
+              "activity": "${SendActivity_dKu7QL()}"
+            }
+          ],
+          "elseActions": [
             {
               "$kind": "Microsoft.HttpRequest",
               "$designer": {
@@ -195,9 +214,9 @@
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "IyRrYe"
+                "id": "kcUayP"
               },
-              "activity": "${SendActivity_IyRrYe()}"
+              "activity": "${SendActivity_kcUayP()}"
             }
           ]
         }

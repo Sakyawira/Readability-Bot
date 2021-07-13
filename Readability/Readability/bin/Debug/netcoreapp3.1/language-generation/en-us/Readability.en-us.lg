@@ -27,11 +27,20 @@
     Text = processing readability of passage ${user.passage}
 ]
 
-# SendActivity_IyRrYe()
+
+# SendActivity_kcUayP()
 [Activity
-    Text = ${SendActivity_IyRrYe_text()}
+    Text = ${SendActivity_kcUayP_text()}
 ]
 
-# SendActivity_IyRrYe_text()
+# SendActivity_kcUayP_text()
 - ```"${turn.results.content.quote}" 
 \- ${turn.results.content.character} from ${turn.results.content.anime}```
+# SendActivity_dKu7QL()
+[Activity
+    Text = ${SendActivity_dKu7QL_text()}
+]
+
+# SendActivity_dKu7QL_text()
+- ```"${turn.results.content[0].quote}" 
+\- ${turn.results.content[0].character} from ${turn.results.content[0].anime}```

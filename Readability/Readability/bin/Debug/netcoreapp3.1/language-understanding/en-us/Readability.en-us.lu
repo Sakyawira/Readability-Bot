@@ -40,7 +40,11 @@
 # FetchAnimeQuote
 - tell me a quote from {anime=Shingeki no Kyojin}
 - can you quote {anime=Naruto} for me 
-- what is a famous quote from {anime=fate}
+- what is a famous quote from {anime=fate/zero}
+- tell me a quote from {anime=re:zero}
+- show me a quote from {anime=Berserk}
+- quote {anime=Death Note}
+
 
 > entity definitions:
 @ ml anime
