@@ -36,3 +36,11 @@
 
 
 @ ml passage
+
+# FetchAnimeQuote
+- tell me a quote from {anime=Shingeki no Kyojin}
+- can you quote {anime=Naruto} for me 
+- what is a famous quote from {anime=fate}
+
+> entity definitions:
+@ ml anime

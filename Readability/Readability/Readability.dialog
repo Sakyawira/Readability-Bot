@@ -159,6 +159,49 @@
       "entities": [
         "passage"
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "r6P2KC",
+        "name": "FetchAnimeQuote"
+      },
+      "intent": "FetchAnimeQuote",
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "9MKWQc"
+          },
+          "condition": "=!exists(@anime)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Uevw5a"
+              },
+              "property": "user.anime",
+              "value": "@anime"
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "vvgDM6"
+              },
+              "resultProperty": "turn.results",
+              "method": "GET",
+              "url": "https://animechan.vercel.app/api/random"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "IyRrYe"
+              },
+              "activity": "${SendActivity_IyRrYe()}"
+            }
+          ]
+        }
+      ]
     }
   ],
   "generator": "Readability.lg",

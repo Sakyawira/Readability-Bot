@@ -11,7 +11,8 @@
       "Help": [
         "HelpDialog.en-us"
       ],
-      "GenerateReadability": ""
+      "GenerateReadability": "",
+      "FetchAnimeQuote": ""
     }
   }
 }

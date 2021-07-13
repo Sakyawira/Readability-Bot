@@ -26,3 +26,12 @@
 [Activity
     Text = processing readability of passage ${user.passage}
 ]
+
+# SendActivity_IyRrYe()
+[Activity
+    Text = ${SendActivity_IyRrYe_text()}
+]
+
+# SendActivity_IyRrYe_text()
+- ```"${turn.results.content.quote}" 
+\- ${turn.results.content.character} from ${turn.results.content.anime}```
