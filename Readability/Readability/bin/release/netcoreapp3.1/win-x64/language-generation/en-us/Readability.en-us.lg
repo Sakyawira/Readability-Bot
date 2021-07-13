@@ -24,10 +24,23 @@
 
 # SendActivity_w1kBpC()
 [Activity
-    Text = ${SendActivity_w1kBpC_text()}
+    Text = processing readability of passage ${user.passage}
 ]
 
-# SendActivity_w1kBpC_text()
-- readability of that passage is 120
-- readability of that passage is 156
-- that passage's readability is 159
+
+# SendActivity_kcUayP()
+[Activity
+    Text = ${SendActivity_kcUayP_text()}
+]
+
+# SendActivity_kcUayP_text()
+- ```"${turn.results.content.quote}" 
+\- ${turn.results.content.character} from ${turn.results.content.anime}```
+# SendActivity_dKu7QL()
+[Activity
+    Text = ${SendActivity_dKu7QL_text()}
+]
+
+# SendActivity_dKu7QL_text()
+- ```"${turn.results.content[0].quote}" 
+\- ${turn.results.content[0].character} from ${turn.results.content[0].anime}```
