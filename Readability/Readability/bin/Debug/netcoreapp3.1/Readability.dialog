@@ -194,6 +194,14 @@
               "url": "https://animechan.vercel.app/api/quotes/anime?title=${user.anime}"
             },
             {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "iSriOa"
+              },
+              "property": "user.randomNumber",
+              "value": "=rand(0, 9)"
+            },
+            {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
                 "id": "dKu7QL"
