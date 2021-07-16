@@ -18,6 +18,8 @@ In order for you to follow along with this documentation, you must have the foll
 You will also need the following account.
 1. [Microsoft Azure](https://azure.microsoft.com/en-us/)
 
+Please note that you need a subscription to use Microsoft Azure services in this tutorial. Students can get $100 credits for free [here](https://azure.microsoft.com/en-us/free/students/). If you are not eligible for that, please consider signing up for Free Trial [here](https://azure.microsoft.com/en-us/free/). If you are also not eligible for that and choose to spend money, please be very mindful of the cost of the resources you deploy.
+
 ## Creating Your Bot
 1. Click on "Create New".
 <img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/CreateNew.png?raw=true" />
@@ -76,9 +78,7 @@ You will also need the following account.
 
 12. Now that we have both our Prediction and Authoring Resource, we must assign them to our Bot Composer profile.
 
-
 13. Go to Bot Composer, go to Publish > Publishing Profile > yourProfile > Edit.
-
 
 14. Instead of Creating New Resources, we now want to import existing resources. 
 <img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/ConfigResources.png?raw=true" />
@@ -90,12 +90,26 @@ You will also need the following account.
 <img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/luisPrediction.png?raw=true" />
 
 16. Scroll down and fill the luis settings with the Key and Endpoints that can be found in your respective authoring and prediction resources on Azure Portal.
+
 <img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/luisSettings.png?raw=true" />
 
 17. Click import.
 
-
 18. Go back to Publish and Publishh the Bot. Wait a couple of minutes and your bot should be published.
+
+### IMPORTANT: One of the resources will actually be created using the S1 pricing. You want to change this.
+
+19. The resource in question is the App Service Plan. I am going to teach you how to change the Azure Pricing as this is something that you might encounter down the line.
+
+20. Go back to Azure Portal. Go to the resource group you created and find the one with type "App Service Plan".
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/cahnge%20price.png?raw=true" />
+
+21. Click on "Scale Up", and then pick the F1 category. And then click on Apply.
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/scaledown.PNG?raw=true" />
+
+22. In the future, if you feel like spending more money and making your service faster, feel free to change the plan again.
 
 ## Create Intent and Entities
 
@@ -119,7 +133,9 @@ Name your trigger as "FetchAnimeQuotes" and copy the following code to the phras
 ```
 If you have noticed that there is a line "@ ml anime". This is our entity. Basically, we are also training LUIS to recognise a specific word /phrase in our sentence as a variable. We will then be able to extract this variable to be used in our dialog logic.
 
-Go ahead and submit. You have now created a new intent. 
+Go ahead and submit. You have now created a new intent.
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/fetchanime.PNG?raw=true" />
 
 ## Dialog System
 
@@ -131,15 +147,20 @@ Go to the FethAnimeTrigger, and click on the small blue plus sign. Select "Creat
 ```
 =exist(@anime)
 ```
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/Branch.PNG?raw=true" />
 So, now your bot will be able to do different things based on whether it recognises any anime title in your sentence.
 
 Next up, we want the bot to Set a property for us to use. This is basically like setting a global variable. Click the blue plus sign under "True", and select "Manage Properties > Set a Property". On the property dialog box, paste "user.anime", on the value paste "=@anime".
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/setprop.PNG?raw=true" />
 
 Now let's make the bot Send a Response to us. Under the Set a Property node, click the blue plus sign again. This time we want to use the "Send a response" node. On the Responses dialog box, paste in this code:
 
 ```
 Fecthing quotes from "${user.anime}"...
 ```
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/sendaresponse.PNG?raw=true" />
 
 Great! Now, we need to test whether this work :D
 
@@ -150,6 +171,8 @@ Great! Now, we need to test whether this work :D
 2. On the top right of the composer, click on stat Bot. One the Bot is started, if you have installed the Bot Emulator, you can select "Test in Emulator".
 
 3. On the Emulator, typed in "get a quote from Naruto".
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/test.PNG?raw=true" />
 
 4. And you should see this:
 
@@ -163,9 +186,12 @@ https://animechan.vercel.app/api/quotes/anime?title=${user.anime}
 
 Notice how we put the property "user.anim"? We can reference our property almost anywhere, so it will be useful here! Make sure you also set the result property, which will store the response of the HTTP request. In our case let's set it to "turn.results"
 
-Now, we also want to generate a random number. The reason is the response of this API is actually not one quote, but 10 of them. We want to make sure that we don't return the same quote everytime plus another way to showcase the thing you can do in the composer!
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/http.PNG?raw=true" />
 
+Now, we also want to generate a random number. The reason is the response of this API is actually not one quote, but 10 of them. We want to make sure that we don't return the same quote everytime plus another way to showcase the thing you can do in the composer!
 Add another Set a Property node. Set the property as "user.randomNumber" and set its value to "=rand(0,9)". This will generate random number between 0 and 9.
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/random.PNG?raw=true" />
 
 Finally wa want the Bot to send you a response. Add a response node and paste this code to its responses dialog box:
 
@@ -174,4 +200,12 @@ Finally wa want the Bot to send you a response. Add a response node and paste th
 \- ${turn.results.content[user.randomNumber].character} from ${turn.results.content[user.randomNumber].anime}
 ```
 
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/final.PNG?raw=true" />
+
 And that's it. Go ahead and Restart your Bot and Chat, and it should show something like this:
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/fate.PNG?raw=true" />
+
+As a bonus, here's a reference on how my dialog looks like, for reference ;) Please not that there are things I did not go through, but should be easy for you to figure out at this stage. Good luck!
+
+<img src="https://github.com/Sakyawira/Readability-Bot/blob/main/Media/dialogtree.PNG?raw=true" />
