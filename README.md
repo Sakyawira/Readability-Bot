@@ -6,9 +6,9 @@ Hey, this document will walk you through setting up a Bot Framework bot using th
 2. [Creating Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#creating-your-bot)
 3. [Deploying Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#deploying-your-bot)
 4. [Create Intent and Entities](https://github.com/Sakyawira/Readability-Bot/tree/main#create-intent-and-entities)
-5. [Testing Your Bot](https://github.com/Sakyawira/ClothPhysics#Pyramid-Collision)
-6. [Dialog System](https://github.com/Sakyawira/ClothPhysics#Burning)
-7. [Calling an API](https://github.com/Sakyawira/ClothPhysics#Dynamic-Particle-Densityn)
+5. [Dialog System](https://github.com/Sakyawira/ClothPhysics#dialog-system)
+6. [Testing Your Bot](https://github.com/Sakyawira/Readability-Bot/tree/main#testing-your-bot)
+7. [Calling an API](https://github.com/Sakyawira/Readability-Bot/tree/main#calling-an-API)
 
 ## Prerequisite
 In order for you to follow along with this documentation, you must have the following and their dependencies installed in your computer.
@@ -97,7 +97,7 @@ You will also need the following account.
 
 18. Go back to Publish and Publishh the Bot. Wait a couple of minutes and your bot should be published.
 
-# Create Intent and Entities
+## Create Intent and Entities
 
 Intent is a way for the Bot to recognise what you want it to do. Using LUIS, we can make the Bot recognise different intents. To add a new intent to the bot go to Create, go to any of your dialog, and click on the three dots. Select "Add ew trigger."
 
@@ -117,6 +117,61 @@ Name your trigger as "FetchAnimeQuotes" and copy the following code to the phras
 > entity definitions:
 @ ml anime
 ```
-If you have noticed that there are is a line "@ ml anime". This is our entity. Basically, we are also training LUIS to recognise specific parts of our sentence as a variable. We will then be able to extract this variable to be used in our dialog logic.
+If you have noticed that there is a line "@ ml anime". This is our entity. Basically, we are also training LUIS to recognise a specific word /phrase in our sentence as a variable. We will then be able to extract this variable to be used in our dialog logic.
 
-Go ahead and submit. You have now created a new intent.
+Go ahead and submit. You have now created a new intent. 
+
+## Dialog System
+
+I am going to go through some of the features the dialog has. Dialog is basically the logical component that handles the interaction between the user and the bot. For example, in it, you can design what the bot will do if it recognises the intent in the user's message.
+
+For example, let's make the bot tell us the anime it recognises.
+
+Go to the FethAnimeTrigger, and click on the small blue plus sign. Select "Create condition" > "Branch:If/Else". On the dialog to the side paste this code:
+```
+=exist(@anime)
+```
+So, now your bot will be able to do different things based on whether it recognises any anime title in your sentence.
+
+Next up, we want the bot to Set a property for us to use. This is basically like setting a global variable. Click the blue plus sign under "True", and select "Manage Properties > Set a Property". On the property dialog box, paste "user.anime", on the value paste "=@anime".
+
+Now let's make the bot Send a Response to us. Under the Set a Property node, click the blue plus sign again. This time we want to use the "Send a response" node. On the Responses dialog box, paste in this code:
+
+```
+Fecthing quotes from "${user.anime}"...
+```
+
+Great! Now, we need to test whether this work :D
+
+## Testing Your Bot
+
+1. You will want to use Bot Framework Emulator here. You can also use the built in Web Chat, but the Emulator will help you debug.
+
+2. On the top right of the composer, click on stat Bot. One the Bot is started, if you have installed the Bot Emulator, you can select "Test in Emulator".
+
+3. On the Emulator, typed in "get a quote from Naruto".
+
+4. And you should see this:
+
+## Calling an API
+
+Now, let's do something more interesting. We are now going to call an API that will actually fetch a quote from an anime. Under the send a response node, add a new node called "Send an HTTP request". There, you want to put this API:
+
+```
+https://animechan.vercel.app/api/quotes/anime?title=${user.anime}
+```
+
+Notice how we put the property "user.anim"? We can reference our property almost anywhere, so it will be useful here! Make sure you also set the result property, which will store the response of the HTTP request. In our case let's set it to "turn.results"
+
+Now, we also want to generate a random number. The reason is the response of this API is actually not one quote, but 10 of them. We want to make sure that we don't return the same quote everytime plus another way to showcase the thing you can do in the composer!
+
+Add another Set a Property node. Set the property as "user.randomNumber" and set its value to "=rand(0,9)". This will generate random number between 0 and 9.
+
+Finally wa want the Bot to send you a response. Add a response node and paste this code to its responses dialog box:
+
+```
+"${turn.results.content[user.randomNumber].quote}" 
+\- ${turn.results.content[user.randomNumber].character} from ${turn.results.content[user.randomNumber].anime}
+```
+
+And that's it. Go ahead and Restart your Bot and Chat, and it should show something like this:

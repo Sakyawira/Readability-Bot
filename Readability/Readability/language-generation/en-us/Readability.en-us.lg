@@ -44,3 +44,7 @@
 # SendActivity_dKu7QL_text()
 - ```"${turn.results.content[user.randomNumber].quote}" 
 \- ${turn.results.content[user.randomNumber].character} from ${turn.results.content[user.randomNumber].anime}```
+# SendActivity_oIhUNd()
+[Activity
+    Text = Fecthing quotes from "${user.anime}"...
+]

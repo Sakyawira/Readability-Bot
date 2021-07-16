@@ -184,6 +184,13 @@
               "value": "=@anime"
             },
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "oIhUNd"
+              },
+              "activity": "${SendActivity_oIhUNd()}"
+            },
+            {
               "$kind": "Microsoft.HttpRequest",
               "$designer": {
                 "id": "nwBFMZ"
